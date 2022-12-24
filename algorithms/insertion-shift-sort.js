@@ -10,28 +10,23 @@
  */
 const insertionShiftSort = (nums) => {
   for (let loop = 1; loop < nums.length; loop++) {
+    const num = nums[loop]
     let idx = loop
 
-    // Value is the new minimum.
-    if (nums[0] > nums[idx]) {
-      const temp = nums[idx]
-
+    if (nums[0] > nums[idx]) { // Value is the new minimum.
       while (idx > 0) {
         nums[idx] = nums[idx - 1] // Shift to the right.
         idx--
       }
 
-      nums[0] = temp
-    // Not the new minimum, find its new place.
-    } else {
-      const temp = nums[idx]
-
-      while (nums[idx - 1] > nums[idx]) {
+      nums[0] = num
+    } else { // Not the new minimum, find its new place.
+      while (nums[idx - 1] > num) {
         nums[idx] = nums[idx - 1] // Shift to the right.
         idx--
       }
 
-      nums[idx] = temp
+      nums[idx] = num
     }
   }
 
