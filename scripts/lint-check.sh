@@ -1,0 +1,1 @@
+deno lint . & npx standard .
